@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.container {
+    background-image: url("../image/ulrick-wery-root-fanart-ulrickwery-01.jpg");
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left bottom 20%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.adset_btn {
+    display: none;
+    position: absolute;
+    left: 75%;
+    top: 30%;
+    color: rgba(255, 255, 255, 0.925);
+    background-color: rgb(41, 146, 0);
+    font-size: 30px;
+    padding: 15px 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: 0 2px 5px 5px rgba(0, 0, 0, 0.26);
+}
+
+.adset_btn.show {
+    display: block;
+}
+
+.adset_btn:hover {
+    background-color: rgb(70, 175, 0);
+}
+
+.adset_container {
+    width: 94%;
+    margin: 0 auto;
+    padding: 116px 40px;
+    background-color: rgba(0, 0, 0, 0.555);
+    display: none;
+    border-radius: 5px;
+}
+
+.adset_list {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.img_wrap img {
+    width: 100%;
+}
+
+@keyframes slidedown {
+    from {
+        opacity: 0;
+        transform: translateY(-80%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+.adset_list {
+    list-style: none;
+}
+
+.adset_list li {
+    width: 17%;
+    position: relative;
+    animation: slidedown 1s calc(var(--i) / 3) forwards;
+    opacity: 0;
+    background-color: transparent;
+}
+
+.adset_item {
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: transparent;
+    position: relative;
+}
+
+.adset_list li.invalid .adset_item::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.637);
+    z-index: 2;
+}
+
+
+.adset_list li.chosen .adset_selected {
+    display: block;
+}
+
+.adset_list li img {
+    display: block;
+    height: 100%;
+}
+
+.adset_list li .adset_selected {
+    display: none;
+    position: absolute;
+    width: 90%;
+    height: unset;
+    top: 50%;
+    transform-origin: center;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-35deg);
+    z-index: 4;
+}
+
+.adset_list li:not(.invalid):hover .adset_item {
+    transition: all 0.1s linear;
+    box-shadow: 0px 0px 20px 8px rgba(255, 255, 255, 0.75);
+    cursor: pointer;
+}
+
+.adset_container.show {
+    display: block;
+}
+
+.adset_item_avatar {
+    position: absolute;
+    width: 41%;
+    height: 30%;
+    border-radius: 50%;
+    overflow: hidden;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -110%);
+}
+
+.adset_list li.invalid .adset_item_avatar::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.637);
+    z-index: 3;
+}
